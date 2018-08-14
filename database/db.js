@@ -1,8 +1,22 @@
 const sql = require('mssql')
-const config = require('config');
+//const config = require('config');
 const winston = require('winston');
-
-const poolPromise = new sql.ConnectionPool(config.get('dbConfig'))
+ 
+ var config = 
+   {
+     user: 'dbadmin', // update me
+     password: 'Espl@123', // update me 
+     server: 'einterceptor.database.windows.net', // update me
+     database: 'EInterceptor',
+     options: 
+        { 
+             encrypt: true
+           , trustedConnection: true
+        },
+      sentimentApiUrl: 'https://pythonsentimentapplication.azurewebsites.net/sentiment'
+   }; 
+   
+const poolPromise = new sql.ConnectionPool(config)
     .connect()
     .then(pool => {
         winston.info('Connected to database successfully.')
