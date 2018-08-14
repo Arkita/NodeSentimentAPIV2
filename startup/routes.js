@@ -11,7 +11,7 @@ module.exports = function (app) {
         res.send('Hello from Sentiment Analysis')
     })*/
     app.get('/',function (req, resp) { 
-        fs.readFile("Index.html", function (error, pgResp) {
+        fs.readFile("Index.htm", function (error, pgResp) {
             if (error) {
                 resp.writeHead(404);
                 resp.write('Contents you are looking are Not Found');
@@ -25,5 +25,6 @@ module.exports = function (app) {
  
     });
     app.use('/api/metadata', metadata);
-    app.use('/api/dashboard', dashboard);
+    app.use('/api/dashboard', dashboard);   
+    
 }
