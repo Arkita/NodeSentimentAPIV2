@@ -24,7 +24,9 @@ router.post('/', async (req, res) => {
     let ToList = Utilities.extractEmails(req.body.ToList);
     let CCList = req.body.CCList != undefined ? Utilities.extractEmails(req.body.CCList) : req.body.CCList;
     let Domain = Utilities.extractDomain(Sender);
-    let AccountName = Utilities.extractAccountName(Domain);
+    //let AccountName = Utilities.extractAccountName(Domain);
+    let AccountName = Utilities.extractAccountNameWithoutDomain(Domain);
+
     let LocalTimeStamp = req.body.ReceivedDate;
     let GMTTimeStamp = undefined;
 
