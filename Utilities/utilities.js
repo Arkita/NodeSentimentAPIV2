@@ -16,6 +16,11 @@ module.exports.extractAccountName = function (inputDomain) {
     return undefined;
 }
 
+module.exports.extractAccountNameWithoutDomain = function (domain) {
+    let accountName = domain.substr(0, domain.lastIndexOf("."));
+    return accountName.charAt(0).toUpperCase() + accountName.slice(1);
+}
+
 module.exports.extractSentiment = function (score) {
 
     let neutralStart = -0.2;
